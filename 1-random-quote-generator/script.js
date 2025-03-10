@@ -18,45 +18,21 @@ const quotes = [
   "We are most alive when we're in love.",
   "The best thing to hold onto in life is each other.",
   "You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.",
-  "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
-  "Happiness is not something ready-made. It comes from your own actions.",
-  "Don’t watch the clock; do what it does. Keep going.",
-  "Opportunities don’t happen. You create them.",
-  "It does not matter how slowly you go as long as you do not stop.",
-  "Perfection is not attainable, but if we chase perfection we can catch excellence.",
-  "I attribute my success to this: I never gave or took any excuse.",
-  "It’s not whether you get knocked down, it’s whether you get up.",
-  "With the new day comes new strength and new thoughts.",
-  "Keep going. Everything you need will come to you at the perfect time.",
-  "Life is 10% what happens to us and 90% how we react to it.",
 ];
 
-let containerElement = document.createElement("div");
-containerElement.classList.add("container");
-
-let h1Element = document.createElement("h1");
-h1Element.innerText = "Random Quote Generator";
-
-let paraQuote = document.createElement("p");
-paraQuote.classList.add("quote");
-paraQuote.innerHTML = quotes[0];
-
-let buttonElement = document.createElement("button");
-buttonElement.innerText = "New Quote";
+let buttonElement = document.getElementsByTagName("button")[0];
+let paraQuote = document.getElementsByClassName("quote")[0];
 
 buttonElement.addEventListener("click", randonNumberGenerator);
-containerElement.append(h1Element, paraQuote, buttonElement);
 
-document.body.append(containerElement);
+let randomNumber = 0;
 
-//let currentQuote = document.getElementsByClassName("quote")[0];
-let randomNumber = 1;
-// Math.floor(Math.random() * quotes.length);
 function randonNumberGenerator() {
   paraQuote.innerHTML = quotes[randomNumber];
-  randomNumber += 1;
+  randomNumber++;
   console.log(randomNumber);
   if (randomNumber == quotes.length) {
     randomNumber = 0;
   }
 }
+// Math.floor(Math.random() * quotes.length);
