@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .input-box {
+            position: relative;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: left;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #ff4f73;
+        }
+
+        .counter-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .counter {
+            font-weight: 600;
+            color: #ff4f73;
+        }
+
+        .remaining {
+            font-weight: 600;
+        }
+
+        /* Dynamic color change when limit is reached */
+        .limit-reached {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Real-Time Character Counter</h2>
+        <div class="input-box">
+            <label for="textInput">Enter your text:</label>
+            <input type="text" id="textInput" placeholder="Start typing...">
+            <div class="counter-box">
+                <span>Characters: <span class="counter">0</span></span>
+                <span>Remaining: <span class="remaining"></span></span>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        let counter = document.querySelector(".counter")
+        console.log(counter)
+        let remain = document.querySelector(".remaining")
+        console.log(remain)
+        let inputElement = document.querySelector("#textInput")
+        const maxLength = 50
+        remain.innerHTML = maxLength
+
+        inputElement.addEventListener("input", function () {
+            console.log(inputElement.value)
+
+            let length = inputElement.value.length
+            counter.innerHTML = length
+            remain.innerHTML = maxLength - length
+
+            if (length >= maxLength) {
+                inputElement.readOnly = true
+            }
+        })
+
+
+        //     inputElement.addEventListener("keydown", function (event) {
+        //         if (event.key == "Backspace" || event.key == "Delete") {
+        //             inputElement.readOnly = false
+        //         }
+
+        //     })
+        // </script> -->
+
+    <script>
+        let inputElement = document.querySelector("#textInput")
+        let counter = document.querySelector(".counter")
+        let remain = document.querySelector(".remaining")
+
+        const maxLength = 50
+        remain.innerHTML = maxLength
+
+
+
+        inputElement.addEventListener("input", function () {
+            let length = inputElement.value.length
+            counter.innerHTML = length
+            remain.innerHTML = maxLength - length
+
+            if (length >= maxLength) {
+                inputElement.readOnly = true
+            }
+
+        })
+
+        inputElement.addEventListener("keydown", function (e) {
+            if (e.key === "Backspace" || e.key === "Delete") {
+                inputElement.readOnly = false
+            }
+        })
+    </script>
+</body>
+
+</html>
