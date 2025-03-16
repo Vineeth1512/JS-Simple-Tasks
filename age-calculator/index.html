@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #dfe9f3, #ffffff);
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        input,
+        button {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px;
+            margin: 5px 0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input {
+            border: 2px solid #a0c4ff;
+            background: #f9f9f9;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            border-color: #669bbc;
+        }
+
+        button {
+            background: linear-gradient(135deg, #669bbc, #3a86ff);
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #3a86ff, #669bbc);
+            transform: scale(1.05);
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2> Age Calculator</h2>
+        <div class="input-group">
+            <label for="oldDate">Date of Birth :</label>
+            <input type="date" id="oldDate">
+        </div>
+        <div class="input-group">
+            <label for="currentDate">Age At the Date of :</label>
+            <input type="date" id="currentDate">
+        </div>
+        <button id="calculate">Calculate</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- <script>
+        let oldDate = document.querySelector("#oldDate");
+        let currentDate = document.querySelector("#currentDate");
+        let result = document.querySelector("#result");
+        let button = document.querySelector("#calculate");
+
+        currentDate.value = new Date().toISOString().split('T')[0];
+
+        button.addEventListener("click", function () {
+            if (oldDate.value == "" || currentDate.value == "") {
+                alert("Please select the date");
+                return;
+            }
+
+            let oldDateObj = new Date(oldDate.value);
+            let currentDateObj = new Date(currentDate.value);
+
+            let year = currentDateObj.getFullYear() - oldDateObj.getFullYear();
+            let month = currentDateObj.getMonth() - oldDateObj.getMonth();
+            let day = currentDateObj.getDate() - oldDateObj.getDate();
+
+            if (day < 0) {
+                month--;
+                let preMonth = new Date(currentDateObj.getFullYear(), currentDateObj.getMonth(), 0).getDate();
+                day = day + preMonth;
+            }
+
+            if (month < 0) {
+                year--;
+                month = month + 12;
+            }
+
+            result.innerHTML = ` ${year} years, ${month} months, ${day} days`;
+        });
+    </script> -->
+
+    <script>
+        let oldDate = document.querySelector("#oldDate")
+        let currentDate = document.querySelector("#currentDate")
+        let result = document.querySelector("#result")
+        let button = document.querySelector("#calculate")
+
+        currentDate.value = new Date().toISOString().split('T')[0]
+
+        button.addEventListener("click", function () {
+            if (oldDate.value == "" || currentDate.value == "") {
+                alert("please select the date")
+            }
+
+
+            let oldDateObj = new Date(oldDate.value)
+            let currentDateObj = new Date(currentDate.value)
+
+            console.log(oldDateObj);
+            console.log((currentDateObj));
+
+            let year = currentDateObj.getFullYear() - oldDateObj.getFullYear()
+
+            let month = currentDateObj.getMonth() - oldDateObj.getMonth();
+            let day = currentDateObj.getDate() - oldDateObj.getDate()
+
+
+            console.log(year, month, day);
+
+            if (day < 0) {
+                month--;
+                let preMonth = new Date(currentDateObj.getFullYear(), currentDateObj.getMonth(), 0).getDate();
+
+                day = day + preMonth
+            }
+
+            if (month < 0) {
+                year--;
+                month = month + 12
+            }
+            console.log(year, month, day);
+
+            result.innerHTML = `${year} years ${month} months ${day} days`
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <title>Digital Clock</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        body {
+            background: #0f3854;
+            background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+            background-size: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #clock {
+            color: #daf6ff;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+        }
+
+        .time {
+            letter-spacing: 0.05em;
+            font-size: 80px;
+            padding: 5px 0;
+        }
+
+        .date {
+            letter-spacing: 0.1em;
+            font-size: 24px;
+        }
+
+        .text {
+            letter-spacing: 0.1em;
+            font-size: 12px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        <p class="date"></p>
+        <p class="time"></p>
+        <p class="text">DIGITAL CLOCK</p>
+    </div>
+</body>
+
+<!-- <script>
+
+    let dateElement = document.querySelector(".date")
+    let timeElement = document.querySelector(".time")
+
+    function digitalTime() {
+        let currentDate = new Date();
+        console.log(currentDate)
+        dateElement.innerHTML = currentDate.toDateString()
+        timeElement.innerHTML = currentDate.toLocaleTimeString()
+    }
+    digitalTime()
+    setInterval(digitalTime, 1000)
+
+</script> -->
+
+<script>
+    let date = document.querySelector(".date")
+
+    let time = document.querySelector(".time")
+
+    function digitalClock() {
+        let currentDate = new Date();
+        date.innerHTML = currentDate.toDateString()
+        time.innerHTML = currentDate.toLocaleTimeString()
+        console.log(currentDate);
+
+    }
+
+    digitalClock()
+
+    setInterval(digitalClock, 1000)
+</script>
+
+</html>
